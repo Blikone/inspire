@@ -14,7 +14,6 @@ function WeatherService(){
 		
 		$.get(apiUrl, function(res){
 			localStorage.setItem('weather', JSON.stringify(res))
-			debugger
 			callWhenDone(JSON.parse(res));
 		})
 	}
