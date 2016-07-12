@@ -11,11 +11,10 @@ function WeatherService(){
 			console.log('Weather Data:', w)
 			return callWhenDone(w)
 		}
-		
+
 		$.get(apiUrl, function(res){
 			localStorage.setItem('weather', JSON.stringify(res))
 			callWhenDone(JSON.parse(res));
 		})
 	}
-	//baha aajdfskl jdslfkj
 }
