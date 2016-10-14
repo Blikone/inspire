@@ -7,9 +7,9 @@
 		todos = todoService.getTodos();
 		todos.forEach(function(item) {
 			$('#todo-list').append(`
-				<div class="checkbox">
+				<div class="checkbox" id="${item.id}">
 					<label>
-						<input type="checkbox">${item} <button type="button" class="close"><span>&times;</span></button>
+						<input type="checkbox" ${item.chosen}>${item.description} <button type="button" class="close" id="${item.id}"><span>&times;</span></button>
 					</label>
 				</div>
 			`)
@@ -26,15 +26,32 @@
 		event.preventDefault();
 		var form = event.target;
 		// debugger;
-		todos.push(form.item.value);
+		var newTodo = {};
+		newTodo.description = form.item.value;
+		newTodo.chosen = '';
+		newTodo.id = Math.ceil(Math.random()*1000000);
+		console.log(newTodo);
+		todos.push(newTodo);
 		saveList(todos);
 		updateTodos(todoService.getTodos());
 		form.item.value = '';
 	})
-	
-	// There are two methods getTodos returns and array
-	// saveTodos accepts an array and stores it to your local storage
-	
+
+	$('.checkbox').on('click', function(id) {
+		debugger;
+		id = this.id;
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id == id) {
+				if (todos[i].chosen) {
+					todos[i].chosen = "";
+				} else {
+					todos[i].chosen = "checked";
+				}
+				saveList(todos);
+				return;
+			}
+		}
+	})
 	
 	
 }())
