@@ -20,8 +20,8 @@ p, h3{
     position: absolute;
     left: 0;
     top: 0;
-    width: 22%;
-    font-size: 22px;
+    width: 23%;
+    font-size: 20px;
     margin: 20px;
     text-align: center;
 }
@@ -38,10 +38,10 @@ p, h3{
     border-radius: 15px;
 }
 
-#first-name{
+#current-time{
     font-size: 80px;
 }
-#greeting{
+#first-name, #greeting{
     font-size: 50px;
 }
 
