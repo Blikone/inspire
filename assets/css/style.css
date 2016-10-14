@@ -2,6 +2,13 @@ p, h3{
     margin: 0;
 }
 
+#clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 #weather{
     position: absolute;
     left: 0;
@@ -13,7 +20,7 @@ p, h3{
     position: absolute;
     left: 0;
     top: 0;
-    width: 25%;
+    width: 22%;
     font-size: 22px;
     margin: 20px;
     text-align: center;
@@ -31,9 +38,12 @@ p, h3{
     border-radius: 15px;
 }
 
-/*.author{
-    font-size: 10px !important;
-}*/
+#first-name{
+    font-size: 80px;
+}
+#greeting{
+    font-size: 50px;
+}
 
 #temp-click{
     background: none;
