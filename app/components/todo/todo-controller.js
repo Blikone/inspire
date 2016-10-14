@@ -37,8 +37,8 @@
 		form.item.value = '';
 	})
 
-	$('.checkbox').on('click', function(id) {
-		debugger;
+	$('#todo-list').on('click', '.checkbox', function(id) {
+		// debugger;
 		id = this.id;
 		for (var i = 0; i < todos.length; i++) {
 			if (todos[i].id == id) {
@@ -53,5 +53,17 @@
 		}
 	})
 	
+	$('#todo-list').on('click', '.close', function(id) {
+		// debugger;
+		id = this.id;
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id == id) {
+				todos.splice(i,1);
+				saveList(todos);
+				updateTodos(todoService.getTodos());
+				return;	
+			}
+		}
+	})
 	
 }())
