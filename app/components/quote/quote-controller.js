@@ -3,7 +3,7 @@
 	quoteService.getQuote(function(quote) {
 		var template = `
 			<div class="quote-well">
-				<p>${quote.quote} <span id="author"><small>${quote.author}</small></span></p>
+				<p>${quote.quote}</br><span id="author" style="font-size: 12px">${quote.author.toLowerCase()}</span></p>
 			</div>
 		`;
 		$('#quote').html(template);
