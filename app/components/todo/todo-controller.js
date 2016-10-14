@@ -6,7 +6,13 @@
 		$('#todo-list').html('');
 		todos = todoService.getTodos();
 		todos.forEach(function(item) {
-			$('#todo-list').append(`<li>${item}</li>`)
+			$('#todo-list').append(`
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">${item} <button type="button" class="close"><span>&times;</span></button>
+					</label>
+				</div>
+			`)
 		});
 	}
 
