@@ -1,0 +1,81 @@
+p, h3{
+    margin: 0;
+}
+
+#clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#weather{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    margin: 20px;
+}
+#quote{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 23%;
+    font-size: 20px;
+    margin: 20px;
+    text-align: center;
+}
+#todo{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+}
+.section{
+    color: white;
+    background-color: rgba(70,70,70,.4);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#current-time{
+    font-size: 80px;
+}
+#first-name, #greeting{
+    font-size: 50px;
+}
+
+#temp-click{
+    background: none;
+    font-size: 45px;
+}
+#temp-click:hover, #temp-click:focus{
+    color: white;
+}
+.description{
+    font-size: 20px;
+}
+
+.item-input{
+    background: none;
+    color: #ccc;
+}
+.item-input:focus{
+    background: white;
+    color: black;
+}
+.add-btn{
+    background-color: rgba(90,90,90,.4);
+    border-color: rgba(50,50,50,.4);
+}
+.add-btn:hover{
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+ul{
+    margin-top: 7px;
+    padding-left: 20px;
+}
+.form-inline{
+    margin: 0;
+}

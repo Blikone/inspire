@@ -3,56 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="image">
-	<div class="clock">
-		<div class="greeting-header">
-		</div>
-		<div id="Date"></div>
-		<ul class="clock-list">
-			<li id="hours"></li>
-			<li id="point">:</li>
-			<li id="min"></li>
-			<li id="point">:</li>
-			<li id="sec"></li>
-		</ul>
+<body id="body">
+	<div class="section" id="clock">
+		<p id="current-time"></p>
+		<span id="greeting"></span>
+		<span id="first-name"></span>
 	</div>
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-xs-6" id="weather">
-
-			</div>
-
-			<div class="col-md-4 col-xs-6" id="quote">
-
-			</div>
-
-			<div class="col-md-4 col-xs-6" id="todo">
-				<form class="todo-form">
-					<div>
-						<h3 style="text-align: center">To Do</h3>
-						<label for="task"></label>
-						<input type="text" class="form-control" id="toDoInput" placeholder="New Task">
-					</div>
-					<button type="submit" class="btn">Add Task</button>
-				</form>
-				<ul class="todo-list">
-
-				</ul>
-				<button type="button" class="btn clear-tasks">Clear</button>
-			</div>
-
-		</div>
-	</div>
-
-
-	<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="app/init.js"></script>
+
+	<div class="section" id="weather">
+
+	</div>
+
+	<div class="section" id="quote">
+
+	</div>
+
+	<div class="section" id="todo">
+		<div class="todo-title">
+			<h3>My Tasks</h3>
+		</div>
+		<div class="todo-well">
+			<ul id="todo-list">
+
+			</ul>
+		</div>
+		<form class="form-inline add-to-list">
+			<input class="form-control item-input" name="item" type="text" placeholder="New List Item" />
+			<button class="btn btn-primary add-btn" type="submit">Add</button>
+		</form>
+	</div>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="app/components/weather/weather-service.js"></script>
 	<script src="app/components/image/image-service.js"></script>
 	<script src="app/components/quote/quote-service.js"></script>
@@ -63,7 +53,6 @@
 	<script src="app/components/image/image-controller.js"></script>
 	<script src="app/components/quote/quote-controller.js"></script>
 	<script src="app/components/todo/todo-controller.js"></script>
-	<script src="app/components/clock/clock-controller.js"></script>
 
 </body>
 

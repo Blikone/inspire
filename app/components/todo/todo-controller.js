@@ -1,68 +1,69 @@
 (function(){
-// // 	// new up the TodoService that has already been configured for your use
-// // 	// There are two methods getTodos returns and array
-// // 	// saveTodos accepts an array and stores it to your local storage
-	
 	var todoService = new TodoService();
+	var todos = [];
 
-	var todos= todoService.getTodos()
+	function updateTodos() {
+		$('#todo-list').html('');
+		todos = todoService.getTodos();
+		todos.forEach(function(item) {
+			$('#todo-list').append(`
+				<div class="checkbox" id="${item.id}">
+					<label>
+						<input type="checkbox" ${item.chosen}>${item.description} <button type="button" class="close" id="${item.id}"><span>&times;</span></button>
+					</label>
+				</div>
+			`)
+		});
+	}
 
-	$('.todo-form').on('submit', function(e) {
- 		e.preventDefault()
- 		var form = this;
- 		var input = form.toDoInput.value;
-		
+	updateTodos(todoService.getTodos());
 
- 		todos.push(input);
- 		todoService.saveTodos(todos);
- 		update();
+	function saveList(list) {
+		todoService.saveTodos(list);
+	}
 
-		
- 	})
+	$('.add-to-list').on('submit', function(event) {
+		event.preventDefault();
+		var form = event.target;
+		// debugger;
+		var newTodo = {};
+		newTodo.description = form.item.value;
+		newTodo.chosen = '';
+		newTodo.id = Math.ceil(Math.random()*1000000);
+		console.log(newTodo);
+		todos.push(newTodo);
+		saveList(todos);
+		updateTodos(todoService.getTodos());
+		form.item.value = '';
+	})
 
-	 $('.clear-tasks').on('click', function () {
-		 todos = [];
-		 update()
-	 })
-
-	 $('.todo-list').on('click', '.item', function() {
-		 var id = $(this).data('id')
-		 removeTask(id);
-		 update();
-	 })
-
-	 function removeTask(id) {
-		for (var i =0; i <todos.length; i++) {
-			var item = todos[i];
-			if (i == id) {
-				todos.splice(i, 1)
+	$('#todo-list').on('click', '.checkbox', function(id) {
+		// debugger;
+		id = this.id;
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id == id) {
+				if (todos[i].chosen) {
+					todos[i].chosen = "";
+				} else {
+					todos[i].chosen = "checked";
+				}
+				saveList(todos);
+				return;
 			}
 		}
-		todoService.saveTodos(todos)
-		update();
-	}
-
+	})
 	
-	function update() {
-		$('.todo-list').empty();
-		$('#toDoInput').val('');
-		var total = todos.length
-		for(var i=0; i < todos.length; i++) {
-			var out = todos[i]
-			$('.todo-list').append(`
-				<li class="item" data-id="${i}">
-				<h5>${out}</h5>
-				</li>
-			`)
+	$('#todo-list').on('click', '.close', function(id) {
+		// debugger;
+		id = this.id;
+		for (var i = 0; i < todos.length; i++) {
+			if (todos[i].id == id) {
+				todos.splice(i,1);
+				saveList(todos);
+				updateTodos(todoService.getTodos());
+				return;	
+			}
 		}
-			$('.todo-list').prepend(`
-			<h4>Total Tasks: ${total}</h4>
-			`)
-	}
-
-	update()
+	})
 	
 }())
-
-
-
