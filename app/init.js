@@ -25,18 +25,19 @@ function checkTime(i) {
 function setGreeting() {
     var today = new Date();
     var h = today.getHours();
+    console.log("h is a " + typeof(h));
     var greeting
     switch(h) {
-        case 5,6,7,8,9,10,11:
+        case 5, 6, 7, 8, 9, 10, 11:
             greeting = "Good morning, ";
             break;
-        case 12,13,14,15,16:
+        case 12, 13, 14, 15, 16:
             greeting = "Good afternoon, ";
             break;
-        case 17,18,19,20,21:
+        case 17, 18, 19, 20, 21:
             greeting = "Good evening, ";
             break;
-        default:
+        case 22, 23, 0, 1, 2, 3, 4:
             greeting = "Go to bed, ";
     }
     document.getElementById('greeting').innerHTML = greeting;
