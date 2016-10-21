@@ -1,3 +1,14 @@
+function getName() {
+    debugger;
+    var name = localStorage.getItem('inspire-name');
+    if (name) {
+        console.log("Hello, " + name)
+        document.getElementById('first-name').innerText = name;
+        return;
+    }
+    namePrompt();
+}
+
 function namePrompt() {
     var userName = prompt("Please enter your name", "Spike Spiegel");
     console.log(userName);
@@ -6,6 +17,7 @@ function namePrompt() {
     if (firstName) {
         console.log("Hello, " + firstName)
         document.getElementById('first-name').innerText = firstName;
+        localStorage.setItem('inspire-name', firstName);
     }
 }
 function startTime() {
@@ -63,6 +75,6 @@ function setGreeting() {
     document.getElementById('greeting').innerHTML = greeting;
 }
 
-namePrompt();
+getName();
 startTime();
 setGreeting();
