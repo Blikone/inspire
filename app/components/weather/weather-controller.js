@@ -3,10 +3,12 @@
 	var localWeather;
 	var weatherService = new WeatherService();
 	
-	weatherService.getWeather(function(weather){
-		// console.log(typeof(weather));
-		localWeather = JSON.parse(weather);
+	weatherService.getWeatherByPosition(function(weather){
+		console.log(weather);
+		console.log(typeof(weather));
+		localWeather = weather;
 		// console.log(typeof(localWeather));
+		updateWeather();
 	})
 	updateWeather = function() {
 		var tempC = localWeather.main.temp - 273.15;
@@ -20,7 +22,6 @@
 		`;
 		$('#weather').html(template);
 	}
-	updateWeather();
 	
 	$('#weather').on('click', '#temp-click', function() {
 		debugger;
@@ -46,4 +47,4 @@
 	
 	
 	
-}())
+}()) //wrapping in an IIFE means this is immediately invoked
