@@ -3,14 +3,17 @@
 	var localWeather;
 	var weatherService = new WeatherService();
 	
-	weatherService.getWeather(function(weather){
-		// console.log(typeof(weather));
-		localWeather = JSON.parse(weather);
-		// console.log(typeof(localWeather));
+	weatherService.getWeatherByPosition(function(weather){
+		console.log(weather);
+		localWeather = weather;
+		updateWeather();
 	})
 	updateWeather = function() {
 		var tempC = localWeather.main.temp - 273.15;
 		var template = `
+			<div class = "location">
+				<p>${localWeather.name}</p>
+			</div>
 			<div class="temp">
 				<button class="btn celsius" id="temp-click" alt="click to change scale">${Math.round(tempC)}&deg;C</button>
 			</div>
@@ -20,10 +23,8 @@
 		`;
 		$('#weather').html(template);
 	}
-	updateWeather();
 	
 	$('#weather').on('click', '#temp-click', function() {
-		debugger;
 		var tempK = localWeather.main.temp
 		var tempC = localWeather.main.temp - 273.15;
 		var tempF = tempC * (9/5) + 32;
@@ -46,4 +47,4 @@
 	
 	
 	
-}())
+}()) //wrapping in an IIFE means this is immediately invoked

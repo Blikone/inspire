@@ -1,3 +1,14 @@
+function getName() {
+    debugger;
+    var name = localStorage.getItem('inspire-name');
+    if (name) {
+        console.log("Hello, " + name)
+        document.getElementById('first-name').innerText = name;
+        return;
+    }
+    namePrompt();
+}
+
 function namePrompt() {
     var userName = prompt("Please enter your name", "Spike Spiegel");
     console.log(userName);
@@ -6,6 +17,7 @@ function namePrompt() {
     if (firstName) {
         console.log("Hello, " + firstName)
         document.getElementById('first-name').innerText = firstName;
+        localStorage.setItem('inspire-name', firstName);
     }
 }
 function startTime() {
@@ -15,17 +27,15 @@ function startTime() {
 	// var s = today.getSeconds();
 	m = checkTime(m);
 	// s = checkTime(s);
+    setGreeting(h);
 	document.getElementById('current-time').innerHTML = h + ":" + m;
-	var t = setTimeout(startTime, 500);
+	setTimeout(startTime, 500);
 }
 function checkTime(i) {
 	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-function setGreeting() {
-    var today = new Date();
-    var h = today.getHours();
-    console.log("h is a " + typeof(h));
+function setGreeting(h) {
     var greeting
     switch(h) {
         case 5:
@@ -63,6 +73,5 @@ function setGreeting() {
     document.getElementById('greeting').innerHTML = greeting;
 }
 
-namePrompt();
+getName();
 startTime();
-setGreeting();
