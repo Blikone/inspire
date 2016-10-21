@@ -27,17 +27,18 @@ function startTime() {
 	// var s = today.getSeconds();
 	m = checkTime(m);
 	// s = checkTime(s);
+    setGreeting(h);
 	document.getElementById('current-time').innerHTML = h + ":" + m;
-	var t = setTimeout(startTime, 500);
+	setTimeout(startTime, 500);
 }
 function checkTime(i) {
 	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-function setGreeting() {
-    var today = new Date();
-    var h = today.getHours();
-    console.log("h is a " + typeof(h));
+function setGreeting(h) {
+    // var today = new Date();
+    // var h = today.getHours();
+    // console.log("h is a " + typeof(h));
     var greeting
     switch(h) {
         case 5:
@@ -77,4 +78,3 @@ function setGreeting() {
 
 getName();
 startTime();
-setGreeting();
