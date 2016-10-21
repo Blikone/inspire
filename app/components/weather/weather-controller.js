@@ -1,14 +1,18 @@
-(function (){
-	
+(function () {
+
 	var localWeather;
 	var weatherService = new WeatherService();
-	
-	weatherService.getWeatherByPosition(function(weather){
-		console.log(weather);
-		localWeather = weather;
-		updateWeather();
-	})
-	updateWeather = function() {
+
+	function refreshWeather() {
+		weatherService.getWeatherByPosition(function (weather) {
+			console.log(weather);
+			localWeather = weather;
+			updateWeather();
+		})
+		setTimeout(refreshWeather, 900000)
+	}
+
+	updateWeather = function () {
 		var tempC = localWeather.main.temp - 273.15;
 		var template = `
 			<div class = "location">
@@ -23,13 +27,13 @@
 		`;
 		$('#weather').html(template);
 	}
-	
-	$('#weather').on('click', '#temp-click', function() {
+
+	$('#weather').on('click', '#temp-click', function () {
 		var tempK = localWeather.main.temp
 		var tempC = localWeather.main.temp - 273.15;
-		var tempF = tempC * (9/5) + 32;
+		var tempF = tempC * (9 / 5) + 32;
 		var degree = $('#temp-click').attr('class');
-		switch(degree) {
+		switch (degree) {
 			case "btn celsius":
 				$('#temp-click').html(`${Math.round(tempF)}&deg;F`);
 				$('#temp-click').addClass('fahrenheit').removeClass('celsius');
@@ -44,7 +48,8 @@
 				break;
 		}
 	})
+
+	refreshWeather();
 	
-	
-	
-}()) //wrapping in an IIFE means this is immediately invoked
+
+} ()) //wrapping in an IIFE means this is immediately invoked
