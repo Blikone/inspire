@@ -25,12 +25,10 @@
 	$('.add-to-list').on('submit', function(event) {
 		event.preventDefault();
 		var form = event.target;
-		// debugger;
 		var newTodo = {};
 		newTodo.description = form.item.value;
 		newTodo.chosen = '';
 		newTodo.id = Math.ceil(Math.random()*1000000);
-		console.log(newTodo);
 		todos.push(newTodo);
 		saveList(todos);
 		updateTodos(todoService.getTodos());
@@ -38,7 +36,6 @@
 	})
 
 	$('#todo-list').on('click', '.checkbox', function(id) {
-		// debugger;
 		id = this.id;
 		for (var i = 0; i < todos.length; i++) {
 			if (todos[i].id == id) {
@@ -54,7 +51,6 @@
 	})
 	
 	$('#todo-list').on('click', '.close', function(id) {
-		// debugger;
 		id = this.id;
 		for (var i = 0; i < todos.length; i++) {
 			if (todos[i].id == id) {

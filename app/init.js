@@ -36,9 +36,6 @@ function checkTime(i) {
     return i;
 }
 function setGreeting(h) {
-    // var today = new Date();
-    // var h = today.getHours();
-    // console.log("h is a " + typeof(h));
     var greeting
     switch(h) {
         case 5:

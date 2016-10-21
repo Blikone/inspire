@@ -5,9 +5,7 @@
 	
 	weatherService.getWeatherByPosition(function(weather){
 		console.log(weather);
-		console.log(typeof(weather));
 		localWeather = weather;
-		// console.log(typeof(localWeather));
 		updateWeather();
 	})
 	updateWeather = function() {
@@ -27,7 +25,6 @@
 	}
 	
 	$('#weather').on('click', '#temp-click', function() {
-		debugger;
 		var tempK = localWeather.main.temp
 		var tempC = localWeather.main.temp - 273.15;
 		var tempF = tempC * (9/5) + 32;
