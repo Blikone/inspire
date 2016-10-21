@@ -13,6 +13,9 @@
 	updateWeather = function() {
 		var tempC = localWeather.main.temp - 273.15;
 		var template = `
+			<div class = "location">
+				<p>${localWeather.name}</p>
+			</div>
 			<div class="temp">
 				<button class="btn celsius" id="temp-click" alt="click to change scale">${Math.round(tempC)}&deg;C</button>
 			</div>

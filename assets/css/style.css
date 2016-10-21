@@ -52,7 +52,7 @@ p, h3{
 #temp-click:hover, #temp-click:focus{
     color: white;
 }
-.description{
+.description, .location{
     font-size: 20px;
 }
 
