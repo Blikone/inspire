@@ -1,5 +1,4 @@
 function TodoService(){
-	//This service is all setup for you no edits necessary here
 	this.getTodos =  function(){
 		var t = localStorage.getItem('inspire-todo-list');
 		if(t){
