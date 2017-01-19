@@ -1,8 +1,8 @@
 function getName() {
-    debugger;
+    // debugger;
     var name = localStorage.getItem('inspire-name');
     if (name) {
-        console.log("Hello, " + name)
+        // console.log("Hello, " + name)
         document.getElementById('first-name').innerText = name;
         return;
     }
@@ -11,11 +11,11 @@ function getName() {
 
 function namePrompt() {
     var userName = prompt("Please enter your name", "Spike Spiegel");
-    console.log(userName);
+    // console.log(userName);
     var firstName = userName.split(' ')[0];
-    console.log(firstName);
+    // console.log(firstName);
     if (firstName) {
-        console.log("Hello, " + firstName)
+        // console.log("Hello, " + firstName)
         document.getElementById('first-name').innerText = firstName;
         localStorage.setItem('inspire-name', firstName);
     }

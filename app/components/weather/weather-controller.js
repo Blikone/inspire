@@ -5,11 +5,11 @@
 
 	function refreshWeather() {
 		weatherService.getWeatherByPosition(function (weather) {
-			console.log(weather);
+			// console.log(weather);
 			localWeather = weather;
 			updateWeather();
 		})
-		setTimeout(refreshWeather, 900000)
+		setTimeout(refreshWeather, 300000)
 	}
 
 	updateWeather = function () {

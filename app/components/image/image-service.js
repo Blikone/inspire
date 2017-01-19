@@ -5,7 +5,7 @@ function ImageService() {
 
 	this.getImage = function (callWhenDone) {
 		return $.get(apiUrl, function (res) {
-			console.log('Image Data:', res)
+			// console.log('Image Data:', res)
 			var imageData = JSON.parse(res);
 			callWhenDone(imageData);
 		})
